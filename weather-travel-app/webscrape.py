@@ -25,11 +25,11 @@ class Info:
             self.soup = BeautifulSoup(self.google(), 'html.parser')
 
     def google(self) -> str:
-        request = requests.get(f"https://google.com/search?q=weather+in+{self.thing}")
+        request = requests.get(f"https://google.com/search?q=clmate+data+for+{self.thing}")
         return request.text
 
-    def getFacts(self):
-        facts = self.soup.find_all("li", class_  =FACT)
+    def get(self):
+        facts = self.soup.find_all("li", class_  = FACT)
         facts_better = [
             fact.get_text()
             for fact in facts]
@@ -39,6 +39,7 @@ class Info:
         return facts_better
 
 # scrapy as an alternative to beautifulsoup
+# used for quick weather data -> no advanced calls needed
 
 class BlogSpider(scrapy.Spider):
     name = 'blogspider'
@@ -50,3 +51,7 @@ class BlogSpider(scrapy.Spider):
 
         for next_page in response.css('a.next-posts-link'):
             yield response.follow(next_page, self.parse)
+
+def scrape():
+    s = Info("London")
+    s.google()

@@ -1,7 +1,9 @@
 from flask import Flask, render_template, url_for, request, redirect
 import gspread, json, requests
 from oauth2client.service_account import ServiceAccountCredentials
-import weatherapi as w
+import weatherapi as wa
+import webscrape as ws
+
 from datetime import datetime
 
 SCOPE = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -23,7 +25,10 @@ now = datetime.now()
 DATE = now.strftime("%m/%d/%Y")
 if TIME.acell('A1').value != DATE:
     print("Needs updating")
-    #update some stuff 
+    #update weather data using OpenWeatherMap 
+    wa.get_all_data() 
+
+ws.scrape() # use scrapy and beuatifulsoup as webscraper for data
 
 months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 monthdict = {"january":0, "february":1, "march":2, "april":3, "may":4, "june":5, "july":6, "august":7, 

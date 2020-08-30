@@ -17,6 +17,9 @@ response = requests.get(url, headers = headers, params = querystring)
 print(response.text)
 """
 
+places = ["New York City", "London", "Istanbul", "Dubai", "Rome", "San Francisco", "Bangkok", "Tokyo",
+"Rome", "Los Angeles", "Toronto", "Miami", "Barcelona", "Seoul", "Prague", "Paris", "Milan", "Phuket", "Singapore", "Bora Bora"]
+
 #class WeatherInfo:
 def getWeather(city, val):
     weatherData = requests.get('http://api.openweathermap.org/data/2.5/forecast?q={}&APPID=225800a064f12ac6d7fbaadf83ce753f'.format(city))
@@ -31,9 +34,9 @@ def check_status_code(city): #debugging only
     else:
         return True
 
-places = ["New York City", "London", "Istanbul", "Dubai", "Rome", "San Francisco", "Bangkok", "Tokyo",
-"Rome", "Los Angeles", "Toronto", "Miami", "Barcelona", "Seoul", "Prague", "Paris", "Milan", "Phuket", "Singapore", "Bora Bora"]
+def get_all_data():
+    pass
 
-#for i in range(len(places)):
+for i in range(len(places)):
     #getWeather(places[i], i)
 
