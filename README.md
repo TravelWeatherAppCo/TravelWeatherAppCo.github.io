@@ -1,3 +1,3 @@
 # TravelWeatherAppCo.github.io
 
-## Alternative website: https://weather-travel-app.herokuapp.com/
+## ebsite: https://weather-travel-app.herokuapp.com/
