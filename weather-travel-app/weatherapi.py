@@ -37,6 +37,5 @@ def check_status_code(city): #debugging only
 def get_all_data():
     pass
 
-for i in range(len(places)):
+#for i in range(len(places)):
     #getWeather(places[i], i)
-

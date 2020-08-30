@@ -128,4 +128,4 @@ def login():
 def about():
     return render_template('about.html')
 
-#debug -> heroku ps:scale web=1 
+#debug -> heroku ps:scale web=1  
